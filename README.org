@@ -1,0 +1,43 @@
+#+TITLE: Yatzy
+
+* Building
+The project is built using CMake. I have used version 3.19, but nothing fancy is used so I have set the minimum version to 3.16 that is the current version on Ubuntu 20.04. This should probably work for most people.
+
+Both g++ 10.2 and clang++ 11.1 have been verified.
+
+It does not use any external libraries except for when building tests, then doctest is used and a snapshot of it is included in ~third_party/doctest~.
+
+To build, create a build directory somewhere and from there run
+#+begin_src bash
+cmake ./path/to/yatzy -G Ninja
+#+end_src
+to build with Ninja as the build generator (or GNU Make by default).
+
+** Building the application
+From the build directory, and for Ninja, run
+#+begin_src bash
+ninja yatzy
+./src/yatzy
+#+end_src
+to build and run the application.
+
+** Building tests
+From the build directory, and for Ninja, run
+#+begin_src bash
+ninja tests
+ctest
+#+end_src
+to build the tests and run them.
+
+* Running the application
+After building the application according to the above, it can be run with
+#+begin_src bash
+./src/yatzy
+#+end_src
+from the build directory.
+
+The application features a CLI with some ASCII for dice. When given the option to input multiple values, do so with a space separated list.
+
+Something more? I don't know, maybe.
+
+GLHF!
